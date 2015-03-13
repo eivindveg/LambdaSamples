@@ -2,7 +2,9 @@ package no.westerdals.pg4100.lambdas.averager;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 public class Main {
 
@@ -11,7 +13,7 @@ public class Main {
         final int size = 100000000;
         List<Integer> numbers = new ArrayList<>(size * 2);
         System.out.println("Setting up list");
-        for(int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) {
             numbers.add(i);
         }
         System.out.println("List set up");
@@ -24,7 +26,7 @@ public class Main {
     public static void timeAverager(SquareRootPowerAverager averager, List<? extends Number> numbers, final int power) {
         final long stamp = System.currentTimeMillis();
         double average = averager.getAverage(numbers, power);
-        final double seconds = (double)(System.currentTimeMillis() - stamp) / 1000;
+        final double seconds = (double) (System.currentTimeMillis() - stamp) / 1000;
         DecimalFormat decimalFormat = new DecimalFormat("0.###", new DecimalFormatSymbols(Locale.getDefault()));
         decimalFormat.setGroupingSize(3);
         decimalFormat.setGroupingUsed(true);

@@ -6,12 +6,12 @@ public class SimpleMinimumIntegerExtractor implements MinimumIntegerExtractor {
 
     @Override
     public int getMinimum(final List<Integer> integers) {
-        if(integers.isEmpty()) {
+        if (integers.isEmpty()) {
             throw new UnsupportedOperationException("Cannot extract minimum value: List is empty");
         }
         Integer min = integers.get(0);
         for (final Integer integer : integers) {
-            if(integer < min) {
+            if (integer < min) {
                 min = integer;
             }
         }
