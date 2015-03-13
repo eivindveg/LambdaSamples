@@ -2,6 +2,9 @@ package no.westerdals.pg4100.lambdas.averager;
 
 import java.util.List;
 
+/**
+ * Simple implementation that uses Java 8's Streaming API to calculate the average
+ */
 public class StreamingSquareRootPowerAverager implements SquareRootPowerAverager {
     @Override
     public double getAverage(final List<? extends Number> numbers, final int power) {

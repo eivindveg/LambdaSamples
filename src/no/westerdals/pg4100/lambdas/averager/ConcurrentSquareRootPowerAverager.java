@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 
+/**
+ * Implementation that uses multiple threads to get the average value
+ */
 public class ConcurrentSquareRootPowerAverager implements SquareRootPowerAverager {
 
     private final int threads = Runtime.getRuntime().availableProcessors() * 2;
@@ -33,6 +36,9 @@ public class ConcurrentSquareRootPowerAverager implements SquareRootPowerAverage
         return sum / threads;
     }
 
+    /**
+     * Worker class for use in thread pools
+     */
     public class LocalAverager implements Callable<Double> {
 
         private final List<? extends Number> numbers;

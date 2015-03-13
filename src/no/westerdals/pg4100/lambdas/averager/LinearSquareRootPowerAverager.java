@@ -2,6 +2,9 @@ package no.westerdals.pg4100.lambdas.averager;
 
 import java.util.List;
 
+/**
+ * Simple implementation that simply iterates through the list to find the average.
+ */
 public class LinearSquareRootPowerAverager implements SquareRootPowerAverager {
 
     @Override
