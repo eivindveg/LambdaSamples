@@ -10,6 +10,6 @@ public class StreamingMinimumIntegerExtractor implements MinimumIntegerExtractor
                 .parallelStream()
                 .mapToInt(Integer::intValue)
                 .min()
-                .orElse(0);
+                .orElseThrow(() -> new UnsupportedOperationException("Cannot extract minimum value: List is empty"));
     }
 }
