@@ -1,10 +1,5 @@
 package no.westerdals.pg4100.lambdas.averager;
 
-import no.westerdals.pg4100.lambdas.averager.SquareRootPowerAverager;
-import no.westerdals.pg4100.lambdas.averager.ConcurrentSquareRootPowerAverager;
-import no.westerdals.pg4100.lambdas.averager.LinearSquareRootPowerAverager;
-import no.westerdals.pg4100.lambdas.averager.StreamingSquareRootPowerAverager;
-
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.*;
