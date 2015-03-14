@@ -37,6 +37,9 @@ public class Main {
                 .stream()
                 .filter(p -> p.getGender() == Gender.UNSPECIFIED)
                 .collect(Collectors.toMap(Person::getName, Person::getAge));
-        peopleWithUnspecifiedGenders.entrySet().forEach(e -> System.out.println(e.getKey() + " is " + e.getValue() + " years old"));
+
+        peopleWithUnspecifiedGenders
+                .entrySet()
+                .forEach(e -> System.out.println(e.getKey() + " is " + e.getValue() + " years old"));
     }
 }
