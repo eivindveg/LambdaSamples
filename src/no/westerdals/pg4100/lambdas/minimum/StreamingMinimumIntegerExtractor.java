@@ -6,8 +6,7 @@ public class StreamingMinimumIntegerExtractor implements MinimumIntegerExtractor
 
     @Override
     public int getMinimum(final List<Integer> integers) {
-        return integers
-                .parallelStream()
+        return integers.parallelStream()
                 // mapToInt, not just map: we want an IntStream, not a Stream<Integer>
                 .mapToInt(Integer::intValue)
                 .min()

@@ -13,7 +13,7 @@ public class LineValidationBuilder {
 
     }
 
-    public LineValidation update(Line line) {
+    public LineValidation build(Line line) {
         List<Item> items = Collections.unmodifiableList(line.getItems());
         LineValidation lineValidation = line.getLineValidation();
         if(lineValidation == null) {

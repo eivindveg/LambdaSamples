@@ -20,7 +20,7 @@ public class Main {
 
         // Set up validations for the lines
         final LineValidationBuilder builder = new LineValidationBuilder();
-        lines.stream().forEach(builder::update);
+        lines.stream().forEach(builder::build);
 
         // Print lines neatly
         lines.forEach(line -> {

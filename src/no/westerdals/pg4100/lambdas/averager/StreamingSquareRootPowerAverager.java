@@ -8,9 +8,8 @@ import java.util.List;
 public class StreamingSquareRootPowerAverager implements SquareRootPowerAverager {
     @Override
     public double getAverage(final List<? extends Number> numbers, final int power) {
-        return numbers
-                // Run concurrently
-                .parallelStream()
+        // Run concurrently because this is a relatively safe operation
+        return numbers.parallelStream()
                 // Turn the stream into a DoubleStream; this allows us to average
                 .mapToDouble(Number::doubleValue)
                 // Take the square root of the value
@@ -19,7 +18,7 @@ public class StreamingSquareRootPowerAverager implements SquareRootPowerAverager
                 .map(d -> Math.pow(d, power))
                 // Return the average
                 .average()
-                // (or, if the list was empty, 0.0)
+                        // (or, if the list was empty, 0.0)
                 .orElse(0.0);
     }
 }

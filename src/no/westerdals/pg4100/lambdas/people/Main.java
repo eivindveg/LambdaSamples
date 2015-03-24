@@ -38,8 +38,8 @@ public class Main {
                 .count();
         System.out.println("We found " + femalesBetweenTwentyAndThirty + " females that are between twenty and thirty years old");
 
-        // And at last, a map of everyone who doesn't identify with a gender(a third, really?),
-        // flattened to Name: age
+        // And at last, a map of everyone who doesn't identify with a gender,
+        // flattened to name: age
         final Map<String, Integer> peopleWithUnspecifiedGenders = people
                 .stream()
                 .filter(p -> p.getGender() == Gender.UNSPECIFIED)
