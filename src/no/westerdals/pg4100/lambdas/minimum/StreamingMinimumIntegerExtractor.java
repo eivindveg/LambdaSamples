@@ -8,7 +8,8 @@ public class StreamingMinimumIntegerExtractor implements MinimumIntegerExtractor
     public int getMinimum(final List<Integer> integers) {
         return integers
                 .parallelStream()
-                .mapToInt(Integer::intValue)    // mapToInt, not just map: we want an IntStream, not a Stream<Integer>
+                // mapToInt, not just map: we want an IntStream, not a Stream<Integer>
+                .mapToInt(Integer::intValue)
                 .min()
                 .orElseThrow(() -> new UnsupportedOperationException("Cannot extract minimum value: List is empty"));
     }
