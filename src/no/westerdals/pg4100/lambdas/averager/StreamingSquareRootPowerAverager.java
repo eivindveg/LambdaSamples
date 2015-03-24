@@ -9,11 +9,11 @@ public class StreamingSquareRootPowerAverager implements SquareRootPowerAverager
     @Override
     public double getAverage(final List<? extends Number> numbers, final int power) {
         return numbers
-                .parallelStream()
-                .mapToDouble(Number::doubleValue)
-                .map(Math::sqrt)
-                .map(d -> Math.pow(d, power))
-                .average()
-                .orElse(0.0);
+                .parallelStream()                   // Run concurrently
+                .mapToDouble(Number::doubleValue)   // Turn the stream into a DoubleStream; this allows us to average
+                .map(Math::sqrt)                    // Take the square root of the value
+                .map(d -> Math.pow(d, power))       // Map the value to the power of the given power
+                .average()                          // Return the average
+                .orElse(0.0);                       // (or, if the list was empty, 0.0)
     }
 }

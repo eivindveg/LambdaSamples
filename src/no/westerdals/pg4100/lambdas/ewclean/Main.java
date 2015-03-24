@@ -13,13 +13,16 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        // Seed the lines
         List<Line> lines = new ArrayList<>();
         Seeder.seedList(lines, 100);
         lines.forEach(l -> Collections.sort(l.getItems(), (o1, o2) -> Double.compare(o1.getValue(), o2.getValue())));
 
+        // Set up validations for the lines
         LineValidationBuilder builder = new LineValidationBuilder();
         lines.stream().forEach(builder::update);
 
+        // Print lines neatly
         lines.forEach(line -> {
             Item item = Seeder.getRandomItemWithBias(line.getLineValidation().getMin());
             

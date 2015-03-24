@@ -9,6 +9,8 @@ public class Main {
         List<Person> people = new ArrayList<>();
         Random random = new Random();
         Gender[] genders = Gender.values();
+
+        // Make some people
         for(int i = 0; i < 100; i++) {
             String name = String.valueOf(i);
             final int age = random.nextInt(100);
@@ -17,12 +19,15 @@ public class Main {
             people.add(new Person(name, age, gender));
         }
 
+        // Count of males that are at least 50
         final long malesAtLeastFifty = people
                 .stream()
                 .filter(p -> p.getGender() == Gender.MALE)
                 .filter(p -> p.getAge() >= 50)
                 .count();
         System.out.println("We found " + malesAtLeastFifty + " males that are at least fifty years old.");
+
+        // Count of prime females
         final long femalesBetweenTwentyAndThirty = people
                 .stream()
                 .filter(p -> p.getGender() == Gender.FEMALE)
@@ -33,11 +38,14 @@ public class Main {
                 .count();
         System.out.println("We found " + femalesBetweenTwentyAndThirty + " females that are between twenty and thirty years old");
 
+        // And at last, a map of everyone who doesn't identify with a gender(a third, really?),
+        // flattened to Name: age
         Map<String, Integer> peopleWithUnspecifiedGenders = people
                 .stream()
                 .filter(p -> p.getGender() == Gender.UNSPECIFIED)
                 .collect(Collectors.toMap(Person::getName, Person::getAge));
 
+        // Print that map
         peopleWithUnspecifiedGenders
                 .entrySet()
                 .forEach(e -> System.out.println(e.getKey() + " is " + e.getValue() + " years old"));

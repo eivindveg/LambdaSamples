@@ -29,17 +29,19 @@ public class LineValidationBuilder {
     }
 
     private void updateMedian(final List<Item> items, final LineValidation lineValidation) {
+        // If the list size is even, we gotta stop 1 index before a middle split
         boolean even = items.size() % 2 == 0;
         long skip = items.size() / 2;
         if(even) {
             skip--;
         }
+
         items.stream()
                 .mapToDouble(Item::getValue)
-                .sorted()
-                .skip(skip)
-                .limit(even ? 2 : 1)
-                .average()
+                .sorted()                       // Sort the values so we can safely split the list
+                .skip(skip)                     // Skip to middle
+                .limit(even ? 2 : 1)            // Limit to 1 value if odd, 2 if even
+                .average()                      // Take the average
                 .ifPresent(lineValidation::setMedian);
     }
 
