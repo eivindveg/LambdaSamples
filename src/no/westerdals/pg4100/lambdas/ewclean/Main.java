@@ -14,27 +14,28 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         // Seed the lines
-        List<Line> lines = new ArrayList<>();
+        final List<Line> lines = new ArrayList<>();
         Seeder.seedList(lines, 100);
         lines.forEach(l -> Collections.sort(l.getItems(), (o1, o2) -> Double.compare(o1.getValue(), o2.getValue())));
 
         // Set up validations for the lines
-        LineValidationBuilder builder = new LineValidationBuilder();
+        final LineValidationBuilder builder = new LineValidationBuilder();
         lines.stream().forEach(builder::update);
 
         // Print lines neatly
         lines.forEach(line -> {
             Item item = Seeder.getRandomItemWithBias(line.getLineValidation().getMin());
             
-            LineValidator validator = new LineValidator();
-            boolean itemValidForLine = validator.isItemValidForLine(line, item);
             printLineValidation(line);
+
+            final LineValidator validator = new LineValidator();
+            final boolean itemValidForLine = validator.isItemValidForLine(line, item);
             System.out.println("\tCould add item with value " + item.getValue() + ": " + itemValidForLine);
         });
     }
 
     public static void printLineValidation(Line line) {
-        LineValidation lineValidation = line.getLineValidation();
+        final LineValidation lineValidation = line.getLineValidation();
         if(lineValidation == null) {
             System.out.println("Line " + line.getTitle() + " has no validation");
         } else {

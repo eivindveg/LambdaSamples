@@ -58,12 +58,10 @@ public class LineValidation {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder(getClass().getSimpleName());
-        stringBuilder.append(" for ").append(line.getTitle()).append(":\n");
-        stringBuilder.append("\tMinimum: ").append(min).append("\n");
-        stringBuilder.append("\tMaximum: ").append(max).append("\n");
-        stringBuilder.append("\tMedian: ").append(median).append("\n");
-        stringBuilder.append("\tAverage: ").append(average);
-        return stringBuilder.toString();
+        return getClass().getSimpleName() + " for " + line.getTitle() + ":\n"
+                + "\tMinimum: " + min + "\n"
+                + "\tMaximum: " + max + "\n"
+                + "\tMedian: " + median + "\n"
+                + "\tAverage: " + average;
     }
 }

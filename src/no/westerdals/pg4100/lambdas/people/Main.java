@@ -5,17 +5,17 @@ import java.util.stream.Collectors;
 
 public class Main {
 
-    public static void main(String[] args) {
-        List<Person> people = new ArrayList<>();
-        Random random = new Random();
-        Gender[] genders = Gender.values();
+    public static void main(final String[] args) {
+        final List<Person> people = new ArrayList<>();
+        final Random random = new Random();
+        final Gender[] genders = Gender.values();
 
         // Make some people
         for(int i = 0; i < 100; i++) {
             String name = String.valueOf(i);
             final int age = random.nextInt(100);
             final int genderInt = random.nextInt(genders.length);
-            Gender gender = genders[genderInt];
+            final Gender gender = genders[genderInt];
             people.add(new Person(name, age, gender));
         }
 
@@ -40,7 +40,7 @@ public class Main {
 
         // And at last, a map of everyone who doesn't identify with a gender(a third, really?),
         // flattened to Name: age
-        Map<String, Integer> peopleWithUnspecifiedGenders = people
+        final Map<String, Integer> peopleWithUnspecifiedGenders = people
                 .stream()
                 .filter(p -> p.getGender() == Gender.UNSPECIFIED)
                 .collect(Collectors.toMap(Person::getName, Person::getAge));

@@ -13,8 +13,8 @@ public class ConcurrentSquareRootPowerAverager implements SquareRootPowerAverage
 
     @Override
     public double getAverage(final List<? extends Number> numbers, final int power) {
-        ExecutorService executorService = Executors.newFixedThreadPool(threads);
-        List<Future<Double>> futures = new ArrayList<>();
+        final ExecutorService executorService = Executors.newFixedThreadPool(threads);
+        final List<Future<Double>> futures = new ArrayList<>();
 
         // Unsure if this is correct. Should be roughly correct for large lists
         final int stepping = numbers.size() / threads;

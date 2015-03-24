@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
         final int power = 3;
         final int size = 100000000;
-        List<Integer> numbers = new ArrayList<>(size * 2);
+        final List<Integer> numbers = new ArrayList<>(size * 2);
         System.out.println("Setting up list");
         for (int i = 0; i < size; i++) {
             numbers.add(i);
