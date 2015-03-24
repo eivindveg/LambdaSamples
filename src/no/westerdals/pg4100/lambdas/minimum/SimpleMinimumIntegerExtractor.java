@@ -7,7 +7,7 @@ public class SimpleMinimumIntegerExtractor implements MinimumIntegerExtractor {
     @Override
     public int getMinimum(final List<Integer> integers) {
         if (integers.isEmpty()) {
-            throw new UnsupportedOperationException("Cannot extract minimum value: List is empty");
+            throw new UnsupportedOperationException(LIST_EMPTY);
         }
 
         Integer min = integers.get(0);

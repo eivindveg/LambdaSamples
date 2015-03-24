@@ -11,6 +11,6 @@ public class StreamingMinimumIntegerExtractor implements MinimumIntegerExtractor
                 // mapToInt, not just map: we want an IntStream, not a Stream<Integer>
                 .mapToInt(Integer::intValue)
                 .min()
-                .orElseThrow(() -> new UnsupportedOperationException("Cannot extract minimum value: List is empty"));
+                .orElseThrow(() -> new UnsupportedOperationException(LIST_EMPTY));
     }
 }
